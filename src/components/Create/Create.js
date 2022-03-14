@@ -29,7 +29,7 @@ function Create() {
       tags: tags.value,
     };
 
-    fetch("http://localhost:3001/newpost", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/newpost`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(send),

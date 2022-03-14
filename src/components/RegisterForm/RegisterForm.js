@@ -28,7 +28,7 @@ class RegisterForm extends Component {
         hash: password.value,
       };
 
-      fetch("http://localhost:3001/newuser", {
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/newuser`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(send),
