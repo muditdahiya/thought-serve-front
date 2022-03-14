@@ -1,0 +1,12 @@
+.RegisterForm {
+  border: 2px solid black;
+  width: fit-content;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin: 20px;
+}

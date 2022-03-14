@@ -1,0 +1,47 @@
+.Header {
+  background-color: bisque;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+
+  /*sticking to top */
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.Header .left {
+  margin-left: 4vw;
+  display: flex;
+  align-items: center;
+}
+
+.Header p {
+  margin: 0 1vw;
+  padding: 0;
+}
+
+.Header .right {
+  margin-right: 4vw;
+  display: flex;
+  align-items: center;
+}
+
+.Header .link {
+  font-size: 1.2em;
+  text-decoration: none;
+  margin: 0 0 0 1vw;
+  color: black;
+}
+
+.Header .link:hover {
+  text-decoration: underline;
+}
+
+.Header .link:active {
+  color: red;
+  text-decoration: underline;
+}

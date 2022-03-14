@@ -1,0 +1,12 @@
+.Footer {
+  background-color: bisque;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Footer p {
+  padding: 0;
+  margin: 0;
+}
