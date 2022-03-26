@@ -1,8 +1,10 @@
 $breakpoint-phone: 320px;
 $breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;
 
+//GLOBAL CSSS
 body {
-  max-width: 100%;
+  width: 100%;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
@@ -11,17 +13,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-//GLOBAL CSSS
-html,
-body {
-  //disable horizontal scrolling
-  overflow-x: hidden;
-}
-body {
-  //disable horizontal scrolling
-  width: 100%;
 }
 .App {
   display: flex;
@@ -62,6 +53,46 @@ body {
     text-decoration: underline;
   }
 }
+.Post {
+  margin: 4vh 0;
+  max-width: 600px;
+  div {
+    background-color: blanchedalmond;
+    padding: 4vh 4vw;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  }
+  p {
+    margin: 0;
+  }
+  #title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+  #author {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+  }
+  #date {
+    margin: 0;
+    padding: 0;
+    font-size: 0.8em;
+    color: grey;
+  }
+  #tags {
+    font-style: italic;
+    color: grey;
+    font-size: 0.8em;
+  }
+  #content {
+    margin-top: 4vh;
+    font-size: 1.1em;
+    white-space: pre-wrap;
+  }
+}
 
 //PHONE CSS
 @media (min-width: $breakpoint-phone) {
@@ -89,6 +120,26 @@ body {
     .cross {
       display: none;
       height: 25px;
+    }
+  }
+  .Post {
+  }
+}
+
+//TABLET CSS
+@media (min-width: $breakpoint-tablet) {
+  body {
+    font: 0.9em;
+  }
+  .Header {
+    .message {
+      display: block;
+    }
+    .link {
+      display: block;
+    }
+    .menu {
+      display: none;
     }
   }
 }
