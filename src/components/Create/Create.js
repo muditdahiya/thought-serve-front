@@ -23,11 +23,13 @@ function Create() {
     }
 
     const send = {
-      title: title.value,
-      author: author.value,
-      content: content.value,
-      tags: tags.value,
+      title: title.value.replaceAll("'", "''"),
+      author: author.value.replaceAll("'", "''"),
+      content: content.value.replaceAll("'", "''"),
+      tags: tags.value.replaceAll("'", "''"),
     };
+
+    console.log(send.title);
 
     fetch(`${process.env.REACT_APP_BACKEND_URL}/newpost`, {
       method: "POST",

@@ -93,6 +93,9 @@ body {
     white-space: pre-wrap;
   }
 }
+.DropDown {
+  background-color: bisque;
+}
 
 //PHONE CSS
 @media (min-width: $breakpoint-phone) {
@@ -121,15 +124,17 @@ body {
       display: none;
       height: 25px;
     }
-  }
-  .Post {
+    .DropDown {
+      position: absolute;
+      top: 50px;
+    }
   }
 }
 
 //TABLET CSS
 @media (min-width: $breakpoint-tablet) {
   body {
-    font: 0.9em;
+    font-size: 0.9em;
   }
   .Header {
     .message {
@@ -141,5 +146,12 @@ body {
     .menu {
       display: none;
     }
+  }
+}
+
+//DESKTOP CSS
+@media (min-width: $breakpoint-desktop) {
+  body {
+    font-size: 1em;
   }
 }
