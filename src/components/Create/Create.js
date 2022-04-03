@@ -1,8 +1,6 @@
 import { React } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "./Create.css";
-
 function Create() {
   const navigate = useNavigate();
 

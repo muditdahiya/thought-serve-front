@@ -6,6 +6,22 @@ import DropDown from "../../components/DropDown/DropDown";
 
 class Header extends Component {
   render() {
+    function toggleDropDown() {
+      let drop = document.getElementsByClassName("DropDown")[0];
+      let menu = document.getElementsByClassName("menu")[0];
+      let cross = document.getElementsByClassName("cross")[0];
+
+      if (drop.style.display === "flex") {
+        drop.style.display = "none";
+        cross.style.display = "none";
+        menu.style.display = "block";
+      } else {
+        drop.style.display = "flex";
+        cross.style.display = "block";
+        menu.style.display = "none";
+      }
+    }
+
     return (
       <div className="Header">
         <div className="left">
@@ -22,8 +38,18 @@ class Header extends Component {
             CREATE POST
           </Link>
 
-          <img src={menu} alt="hamburger menu" className="menu"></img>
-          <img src={cross} alt="close menu" className="cross"></img>
+          <img
+            src={menu}
+            alt="hamburger menu"
+            className="menu"
+            onClick={toggleDropDown}
+          ></img>
+          <img
+            src={cross}
+            alt="close menu"
+            className="cross"
+            onClick={toggleDropDown}
+          ></img>
 
           <DropDown className="DropDown" />
         </nav>

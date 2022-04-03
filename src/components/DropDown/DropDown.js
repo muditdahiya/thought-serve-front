@@ -8,7 +8,6 @@ function DropDown() {
       <Link className="droplink" to={"/"}>
         HOME
       </Link>
-      <br />
       <Link className="droplink" to={"/create"}>
         CREATE POST
       </Link>
