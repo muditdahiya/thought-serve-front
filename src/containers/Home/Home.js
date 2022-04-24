@@ -9,6 +9,7 @@ class Home extends Component {
     this.state = {
       posts: [],
       ready: false,
+      page: 1,
     };
   }
 
@@ -23,26 +24,39 @@ class Home extends Component {
   displayPosts = () => {
     if (this.state.ready) {
       const arr = [];
-      for (let i = 0; i < this.state.posts.length; i++) {
-        const { title, author, content, date, tags } = this.state.posts[i];
-        arr.push(
-          <Post
-            key={i}
-            title={title}
-            author={author}
-            content={content}
-            date={date}
-            tags={tags}
-          />
-        );
+      for (let i = 0; i < this.state.page * 5; i++) {
+        //check if post exists
+        if (this.state.posts[i]) {
+          const { title, author, content, date, tags } = this.state.posts[i];
+          arr.push(
+            <Post
+              key={i}
+              title={title}
+              author={author}
+              content={content}
+              date={date}
+              tags={tags}
+            />
+          );
+        }
       }
       return arr;
+    } else {
+      return (
+        <div>
+          <p>Please wait while the posts load :)</p>
+        </div>
+      );
     }
   };
 
   componentDidMount() {
     this.getPosts();
   }
+
+  nextPage = () => {
+    this.setState({ page: this.state.page + 1 });
+  };
 
   render() {
     return (
@@ -54,9 +68,7 @@ class Home extends Component {
         </p>
         <div>{this.displayPosts()}</div>
         <div id="pageNav">
-          <button>Prev</button>
-          <label> Page this of this </label>
-          <button>Next</button>
+          <button onClick={this.nextPage}>Load more</button>
         </div>
       </div>
     );
