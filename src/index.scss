@@ -173,6 +173,18 @@ body {
     background-color: green;
   }
 }
+.Home {
+  padding: 20px 4vw;
+  width: fit-content;
+  p {
+    padding: 0;
+  }
+  #pageNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 //PHONE CSS
 @media (min-width: $breakpoint-phone) {

@@ -1,5 +1,4 @@
 import { React, Component } from "react";
-import "./Home.css";
 
 //Components
 import Post from "../../components/Post/Post";
@@ -54,6 +53,11 @@ class Home extends Component {
           judged!
         </p>
         <div>{this.displayPosts()}</div>
+        <div id="pageNav">
+          <button>Prev</button>
+          <label> Page this of this </label>
+          <button>Next</button>
+        </div>
       </div>
     );
   }
