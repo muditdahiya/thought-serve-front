@@ -7,7 +7,7 @@ class Post extends Component {
   }
 
   render() {
-    let { title, author, content, date, tags } = this.props;
+    let { postID, title, author, content, date, tags } = this.props;
     //TITLE
     if (title === "") {
       title = "No Title";
@@ -27,6 +27,19 @@ class Post extends Component {
       tags = "";
     }
 
+    const copyLink = async () => {
+      const url = `https://thought-serve.herokuapp.com/posts/${postID}`;
+
+      navigator.clipboard.writeText(url);
+
+      document.getElementById("copiedMessage " + postID).innerHTML =
+        "Copied post URL to clipboard!";
+
+      setTimeout(() => {
+        document.getElementById("copiedMessage " + postID).innerHTML = "";
+      }, 1000);
+    };
+
     return (
       <div className="Post">
         <div>
@@ -37,6 +50,12 @@ class Post extends Component {
           </p>
           <p id="tags">{tags}</p>
           <p id="content">{content}</p>
+          <div id="buttons">
+            <p id={`copiedMessage ${postID}`}></p>
+            <button id="shareButton" onClick={copyLink}>
+              Share
+            </button>
+          </div>
         </div>
       </div>
     );

@@ -72,12 +72,11 @@ body {
 .Post {
   margin: 4vh 0;
   max-width: 600px;
-  div {
-    background-color: blanchedalmond;
-    padding: 4vh 4vw;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  }
+  background-color: blanchedalmond;
+  padding: 4vh 4vw;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
   p {
     margin: 0;
   }
@@ -107,6 +106,31 @@ body {
     margin-top: 4vh;
     font-size: 1.1em;
     white-space: pre-wrap;
+  }
+  #buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+    p {
+      color: rgb(0, 168, 0);
+      width: 50%;
+    }
+    button {
+      background-color: #fcaf3c;
+    }
+    button:hover {
+      border: 2px black solid;
+      cursor: pointer;
+    }
+    button:active {
+      background-color: #b76e00;
+    }
+  }
+  #shareButton {
+    width: 30%;
+    height: 40px;
+    border: 1px black solid;
   }
 }
 .DropDown {
@@ -184,7 +208,7 @@ body {
     justify-content: center;
     align-items: center;
   }
-  button {
+  #loadMore {
     width: 40%;
     height: 40px;
     background-color: lightgreen;

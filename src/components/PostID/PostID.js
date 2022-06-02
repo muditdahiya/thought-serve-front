@@ -30,6 +30,7 @@ const PostID = () => {
         return (
           <Post
             key={id}
+            postID={post[0].id}
             title={post[0].title}
             author={post[0].author}
             content={post[0].content}

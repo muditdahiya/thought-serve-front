@@ -27,10 +27,12 @@ class Home extends Component {
       for (let i = 0; i < this.state.page * 5; i++) {
         //check if post exists
         if (this.state.posts[i]) {
-          const { title, author, content, date, tags } = this.state.posts[i];
+          const { id, title, author, content, date, tags } =
+            this.state.posts[i];
           arr.push(
             <Post
               key={i}
+              postID={id}
               title={title}
               author={author}
               content={content}
@@ -68,7 +70,9 @@ class Home extends Component {
         </p>
         <div>{this.displayPosts()}</div>
         <div id="pageNav">
-          <button onClick={this.nextPage}>Load more</button>
+          <button id="loadMore" onClick={this.nextPage}>
+            Load more
+          </button>
         </div>
       </div>
     );
