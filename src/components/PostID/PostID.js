@@ -11,10 +11,10 @@ const PostID = () => {
 
   const getPost = async () => {
     if (!ready) {
-      // const res = await fetch(
-      //   `${process.env.REACT_APP_BACKEND_URL}/posts/${id}`
-      // );
-      const res = await fetch(`http://localhost:3001/posts/${id}`);
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/posts/${id}`
+      );
+      // const res = await fetch(`http://localhost:3001/posts/${id}`);
       const json = await res.json();
       setPost(json);
       setReady(true);
