@@ -15,6 +15,8 @@ class Home extends Component {
 
   getPosts = async () => {
     if (!this.state.ready) {
+      console.log(`${process.env.REACT_APP_BACKEND_URL}/allposts`);
+      console.log(process.env);
       const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/allposts`);
       const json = await res.json();
       this.setState({ posts: json, ready: true });

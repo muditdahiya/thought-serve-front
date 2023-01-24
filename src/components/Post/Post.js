@@ -28,7 +28,7 @@ class Post extends Component {
     }
 
     const copyLink = async () => {
-      const url = `https://thought-serve.herokuapp.com/posts/${postID}`;
+      const url = `${process.env.REACT_APP_FRONTEND_URL}/posts/${postID}`;
 
       navigator.clipboard.writeText(url);
 

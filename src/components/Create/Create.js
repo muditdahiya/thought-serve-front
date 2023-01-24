@@ -9,6 +9,7 @@ function Create() {
   }
 
   function sendData() {
+    console.log("button pressed");
     const title = get("title");
     const author = get("author");
     const content = get("content");
