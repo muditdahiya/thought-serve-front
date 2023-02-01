@@ -28,7 +28,7 @@ class Post extends Component {
     }
 
     const copyLink = async () => {
-      const url = `${process.env.REACT_APP_FRONTEND_URL}/posts/${postID}`;
+      const url = `${process.env.REACT_APP_FRONTEND_URL}${process.env.PUBLIC_URL}/posts/${postID}`;
 
       navigator.clipboard.writeText(url);
 
