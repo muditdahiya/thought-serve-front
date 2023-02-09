@@ -1,4 +1,5 @@
 import { React, Component } from "react";
+import clipboardCopy from "clipboard-copy";
 
 class Post extends Component {
   constructor(props) {
@@ -30,7 +31,8 @@ class Post extends Component {
     const copyLink = async () => {
       const url = `${process.env.REACT_APP_FRONTEND_URL}${process.env.PUBLIC_URL}/posts/${postID}`;
 
-      navigator.clipboard.writeText(url);
+      // navigator.clipboard.writeText(url);
+      clipboardCopy(url);
 
       document.getElementById("copiedMessage " + postID).innerHTML =
         "Copied post URL to clipboard!";

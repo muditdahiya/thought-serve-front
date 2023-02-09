@@ -53,12 +53,29 @@ class Home extends Component {
     }
   };
 
+  displayLoadMore = () => {
+    if (!this.state.ready) {
+      return;
+    } else {
+      if (this.state.posts.length > this.state.page * 5) {
+        return (
+          <div id="pageNav">
+            <button id="loadMore" onClick={this.nextPage}>
+              Load more
+            </button>
+          </div>
+        );
+      }
+    }
+  };
+
   componentDidMount() {
     this.getPosts();
   }
 
   nextPage = () => {
     this.setState({ page: this.state.page + 1 });
+    console.log(this.state.posts.length);
   };
 
   render() {
@@ -70,11 +87,7 @@ class Home extends Component {
           judged!
         </p>
         <div>{this.displayPosts()}</div>
-        <div id="pageNav">
-          <button id="loadMore" onClick={this.nextPage}>
-            Load more
-          </button>
-        </div>
+        {this.displayLoadMore()}
       </div>
     );
   }
