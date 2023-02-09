@@ -1,7 +1,7 @@
 {
   "name": "front",
   "version": "0.1.0",
-  "homepage": "/thought-serve",
+  "homepage": "http://muditdahiya.com/thought-serve",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
