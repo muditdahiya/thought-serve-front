@@ -50,7 +50,7 @@ const PostID = () => {
 
   useEffect(() => {
     getPost();
-  });
+  }, []);
 
   return <div className="PostID">{displayPost()}</div>;
 };
