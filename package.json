@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "npx serve -s -l 4001"
+    "serve": "npx serve -l 4001 -s "
   },
   "eslintConfig": {
     "extends": [
