@@ -1,8 +1,14 @@
-import { React } from "react";
+import { React, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Create() {
   const navigate = useNavigate();
+  const [content, setContent] = useState("");
+  const previousContent = useRef("");
+
+  useEffect(() => {
+    previousContent.current = content;
+  }, [content]);
 
   function get(id) {
     return document.getElementById(id);
@@ -24,7 +30,7 @@ function Create() {
     const send = {
       title: title.value.replaceAll("'", "''"),
       author: author.value.replaceAll("'", "''"),
-      content: content.value.replaceAll("'", "''"),
+      content: content.value.replaceAll("'", "''").trim(),
       tags: tags.value.replaceAll("'", "''"),
     };
 
@@ -42,6 +48,19 @@ function Create() {
       });
   }
 
+  function checkContent() {
+    const contentValue = get("content").value;
+    const count = contentValue.split(/\S+/).length - 1;
+    if (count > 250) {
+      get("content").value = previousContent.current.trim();
+    } else if (count === 250) {
+      get("content").value = get("content").value.trim();
+      setContent(contentValue);
+    } else if (count < 250) {
+      setContent(contentValue);
+    }
+  }
+
   return (
     <div className="Create">
       <h2>Create a new post here!</h2>
@@ -54,8 +73,18 @@ function Create() {
             <label>Author: </label> <input id="author" type="text" />
           </div>
           <div>
-            <label>Content: </label>
-            <textarea id="content" type="text" />
+            <div id="contentCount">
+              <label>Content: </label>
+              <p id="count">
+                ({content.split(/\S+/).length - 1}/250<br></br>words)
+              </p>
+            </div>
+            <textarea
+              content={content}
+              onChange={checkContent}
+              id="content"
+              type="text"
+            />
           </div>
           <div>
             <label>Tags: </label>
