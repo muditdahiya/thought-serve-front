@@ -14,7 +14,6 @@ const PostID = () => {
       const res = await fetch(
         `${process.env.REACT_APP_BACKEND_URL}/posts/${id}`
       );
-      // const res = await fetch(`http://localhost:3001/posts/${id}`);
       const json = await res.json();
       setPost(json);
       setReady(true);
@@ -26,7 +25,6 @@ const PostID = () => {
       if (post.length === 0) {
         return <p>Sorry, no such post exists :(</p>;
       } else {
-        console.log(post);
         return (
           <Post
             key={id}

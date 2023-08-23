@@ -18,6 +18,12 @@ body {
   display: flex;
   flex-direction: column;
 }
+.Main {
+  padding: 60px 16vw 10px 16vw;
+  padding: 60px 8vw 10px 8vw;
+
+  min-height: calc(100vh - 100px);
+}
 .Header {
   //sticking to the top
   position: fixed;
@@ -71,14 +77,16 @@ body {
 }
 .Post {
   margin: 4vh 0;
-  max-width: 600px;
+  max-width: 700px;
   background-color: blanchedalmond;
-  padding: 4vh 4vw;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
   p {
     margin: 0;
+  }
+  .contents {
+    padding: 4vh 4vw;
   }
   #title {
     font-size: 1.6em;
@@ -106,6 +114,7 @@ body {
     margin-top: 4vh;
     font-size: 1.1em;
     white-space: pre-wrap;
+    min-width: none;
   }
   #buttons {
     display: flex;
@@ -145,7 +154,6 @@ body {
     justify-content: center;
   }
   form {
-    /* padding: 40px 80px; */
     padding: 2vh 4vw;
     display: flex;
     flex-direction: column;
@@ -164,6 +172,7 @@ body {
     width: $form-width;
     border-radius: 5px;
     border: none;
+    min-height: 30px;
   }
   textarea {
     width: $form-width;
@@ -210,28 +219,139 @@ body {
   }
 }
 .Home {
-  padding: 20px 4vw;
-  width: fit-content;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   p {
     padding: 0;
   }
+
   #pageNav {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
-  #loadMore {
-    width: 40%;
-    height: 40px;
-    background-color: lightgreen;
-    border: 1px black solid;
-  }
+
   button:hover {
     border: 2px black solid;
     cursor: pointer;
   }
   button:active {
     background-color: green;
+  }
+  #loadMore {
+    width: 25%;
+    height: 40px;
+    background-color: lightgreen;
+    border: 1px black solid;
+  }
+
+  .posts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.Profile {
+  display: flex;
+  justify-content: center;
+  .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+  }
+
+  #signOutDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    h2 {
+      width: 60%;
+      overflow-wrap: break-word;
+    }
+  }
+  #signOutButton {
+    min-height: 40px;
+    max-height: 50px;
+    background-color: rgb(255, 106, 106);
+    border: 1px black solid;
+    width: 40%;
+    max-width: 150px;
+  }
+  #signOutButton:hover {
+    outline: 1px black solid;
+    cursor: pointer;
+  }
+  #signOutButton:active {
+    background-color: #cf0000;
+  }
+}
+.Login,
+.SignUp {
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  form {
+    width: 100%;
+    max-width: 500px;
+    padding: 4vh 4vw;
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  form div {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+  input {
+    height: 5vh;
+    width: 60%;
+    border-radius: 5px;
+    border: none;
+    min-height: 30px;
+  }
+  #error {
+    color: red;
+    padding: 0;
+    margin: 0;
+    width: 70%;
+    text-align: end;
+  }
+
+  #actionButton {
+    width: 30%;
+    height: 40px;
+    background-color: lightgreen;
+    border: 1px black solid;
+  }
+  #actionButton:hover {
+    border: 2px black solid;
+    cursor: pointer;
+  }
+  #actionButton:active {
+    background-color: green;
+  }
+}
+
+.RerouteToLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  .emoji {
+    font-size: 5rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -279,6 +399,10 @@ body {
       }
     }
   }
+
+  .Post {
+    width: 100%;
+  }
 }
 
 //TABLET CSS
@@ -310,7 +434,8 @@ body {
   body {
     font-size: 1em;
   }
+
   .Post {
-    width: 600px;
+    width: 700px;
   }
 }

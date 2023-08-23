@@ -1,9 +1,12 @@
 import { React, Component } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 //Components
 import Post from "../../components/Post/Post";
 
 class Home extends Component {
+  static contextType = UserContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +18,6 @@ class Home extends Component {
 
   getPosts = async () => {
     if (!this.state.ready) {
-      console.log(process.env);
       const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/allposts`);
       const json = await res.json();
       this.setState({ posts: json, ready: true });
@@ -73,21 +75,31 @@ class Home extends Component {
     this.getPosts();
   }
 
+  username = () => {
+    return this.context.username;
+  };
+
   nextPage = () => {
     this.setState({ page: this.state.page + 1 });
-    console.log(this.state.posts.length);
   };
 
   render() {
     return (
       <div className="Home">
-        <h1>Welcome to ThoughtServe</h1>
+        {!this.context.isLoggedIn ? (
+          <h1>Welcome to ThoughtServe</h1>
+        ) : (
+          <h1>Hi {this.username()}, welcome to ThoughtServe</h1>
+        )}
+
         <p>
           This is a community where you can share your thoughts without being
           judged!
         </p>
-        <div>{this.displayPosts()}</div>
-        {this.displayLoadMore()}
+        <div className="posts">
+          {this.displayPosts()}
+          {this.displayLoadMore()}
+        </div>
       </div>
     );
   }

@@ -38,6 +38,10 @@ class Header extends Component {
             CREATE POST
           </Link>
 
+          <Link className="link" to={"/profile"}>
+            PROFILE
+          </Link>
+
           <img
             src={menu}
             alt="hamburger menu"
@@ -51,7 +55,7 @@ class Header extends Component {
             onClick={toggleDropDown}
           ></img>
 
-          <DropDown className="DropDown" />
+          <DropDown className="DropDown" toggler={toggleDropDown} />
         </nav>
       </div>
     );

@@ -18,9 +18,9 @@ class Post extends Component {
       author = "Anonymous";
     }
     //DATE
-    let time =
-      date.substring(date.indexOf("T") + 1, date.indexOf("Z")).substring(0, 5) +
-      " UTC";
+    // let time =
+    //   date.substring(date.indexOf("T") + 1, date.indexOf("Z")).substring(0, 5) +
+    //   " UTC";
     date = date.substring(0, date.indexOf("T"));
     //TAGS
     tags = "#" + tags.split(" ").join(" #");
@@ -44,12 +44,10 @@ class Post extends Component {
 
     return (
       <div className="Post">
-        <div>
+        <div className="contents">
           <p id="title">{title}</p>
           <p id="author">by {author}</p>
-          <p id="date">
-            on {date} at {time}
-          </p>
+          <p id="date">on {date}</p>
           <p id="tags">{tags}</p>
           <p id="content">{content}</p>
           <div id="buttons">
