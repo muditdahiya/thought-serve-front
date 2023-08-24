@@ -19,6 +19,7 @@ function Create() {
   }
 
   function sendData() {
+    console.log(context.username);
     const title = get("title");
     const author = context.username;
     const content = get("content");
@@ -32,7 +33,7 @@ function Create() {
 
     const send = {
       title: title.value.replaceAll("'", "''"),
-      author: author.value.replaceAll("'", "''"),
+      author: author.replaceAll("'", "''"),
       content: content.value.replaceAll("'", "''").trim(),
       tags: tags.value.replaceAll("'", "''"),
     };
